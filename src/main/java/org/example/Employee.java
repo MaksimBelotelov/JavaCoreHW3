@@ -15,16 +15,18 @@ public class Employee {
     private String position;
     private String phoneNumber;
     private double salary;
+    private String birthDay;
     private int age;
 
     public Employee(String lastName, String firstName, String surname,
-                    String position, String phoneNumber, double salary, int age) {
+                    String position, String phoneNumber, double salary, String birthDay, int age) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.surname = surname;
         this.position = position;
         this.phoneNumber = phoneNumber;
         this.salary = salary;
+        this.birthDay = birthDay;
         this.age = age;
     }
 
@@ -49,12 +51,6 @@ public class Employee {
                 lastName, firstName, position, phoneNumber, salary, age);
     }
 
-    public static void addSalaryToOld(Employee[] array, int age, int additional) {
-        for(Employee emp: array)
-            if(emp.getAge() > age)
-                emp.setSalary(emp.getSalary() + additional);
-    }
-
     public static int getAvgAge(Employee[] emps) {
         int res = 0;
         for(Employee emp: emps)
@@ -67,5 +63,27 @@ public class Employee {
         for (Employee emp: emps)
             res += emp.getSalary();
         return res / emps.length;
+    }
+
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    /**
+     * Написать прототип компоратора - метод внутри класса сотрудника, сравнивающий две даты,
+     * представленные в виде трёх чисел гггг-мм-дд, без использования условного оператора.
+     * @param date1 первая дата
+     * @param date2 вторая дата
+     * @return целое значение больше 1 или равное единице, если date1 > date2,
+     * целое значение меньше 0, если date1 < date2, 0 - если date1 == date2.
+     */
+    public static int compare(String date1, String date2) {
+        int first = Integer.parseInt(date1.replace("-", ""));
+        int second = Integer.parseInt(date2.replace("-", ""));
+        return first - second;
     }
 }

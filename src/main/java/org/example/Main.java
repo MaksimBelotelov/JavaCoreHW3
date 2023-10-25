@@ -4,7 +4,7 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         Employee employee1 = new Employee("Белотелов", "Максим", "Сергеевич",
-                "Позиция", "+79269376532", 10000, 34);
+                "Позиция", "+79269376532", 10000, "1989-04-16",34);
 
         employee1.printEmployeeInfo();
 
@@ -14,22 +14,24 @@ public class Main {
 */
 
         Employee[] array = {new Employee("Белотелов", "Максим", "Сергеевич",
-                "Позиция", "+79269376532", 10000, 34),
+                "Позиция", "+79269376532", 10000, "1989-04-16", 34),
                 new Employee("Иванов", "Иван", "Иванович",
-                        "Junior Developer", "+79269376532", 10000, 30),
+                        "Junior Developer", "+79269376532", 10000, "1993-05-17", 30),
                 new Employee("Петров", "Петр", "Петрович",
-                        "Middle Developer", "+79998887766", 11000, 46),
+                        "Middle Developer", "+79998887766", 11000, "1977-03-15",46),
                 new Employee("Денисов", "Денис", "Денисович",
-                        "Senior Developer", "+79667776655", 14000, 36),
+                        "Senior Developer", "+79667776655", 14000, "1987-06-04",36),
                 new Employee("Кузнецов", "Алексей", "Александрович",
-                        "Lead", "+79008007060", 16000, 50)
+                        "Lead", "+79008007060", 16000, "1973-02-11",50),
+                new Manager("Сидоров", "Сидр", "Сидорович",
+                        "Owner", "+79999999999", 18000, "1973-03-12",50)
         };
 
         for(Employee emp : array) {
             emp.printEmployeeInfo();
         }
 
-        Employee.addSalaryToOld(array, 45, 5000);
+        Manager.addSalaryToOld(array, 45, 5000);
 
         System.out.println("================================");
         for(Employee emp : array) {
